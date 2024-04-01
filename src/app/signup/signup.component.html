@@ -1,0 +1,109 @@
+<div class="container mt-5">
+  <div class="row">
+    
+  </div>
+  <div class="row">
+     <div class="col-md-6 mx-auto mt-5">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="text-white text-center">Registration Form</h5>
+          </div>
+          <div class="card-body">
+             <form [formGroup]="signupForm" (ngSubmit)="signupUser()">
+              <div class="row">
+                <div class="form-floating mb-2">
+                  <input 
+                      formControlName="username" 
+                       type="text" 
+                       class="form-control input-signup" 
+                       id="username"
+                       name="username" 
+                       placeholder=""
+                       autocomplete="off"
+                       required 
+                       [ngClass]="{ 'is-invalid': signupForm.get('username')?.errors && signupForm.get('username')?.touched }"     
+                  >
+                  <label for="username" class="form-label">username</label>
+                  @if(signupForm.get('username')?.invalid && (signupForm.get('username')?.touched || signupForm.get('username')?.dirty) ) {
+                    <div>
+                       @if (signupForm.get('username')?.getError('required')) {
+                         <div class="text-danger mt-1">Le champ username est obligatoire</div>
+                       }
+                       @if (signupForm.get('username')?.getError('minlength')) {
+                         <div class="text-danger mt-1">Le username doit comporter au moins 3 caractères</div>
+                       }
+                    </div>
+                  }
+                </div>
+               
+              </div>
+              <div class="row">
+                <div class="form-floating mb-2">
+                  <input 
+                       formControlName="email" 
+                       type="email" 
+                       class="form-control input-signup" 
+                       id="email"
+                       name="email" 
+                       placeholder=""
+                       autocomplete="off"
+
+                       required 
+                       [ngClass]="{ 'is-invalid': signupForm.get('email')?.errors && signupForm.get('email')?.touched }"   
+                  >
+                  <label for="email" class="form-label">email</label>
+                  @if(signupForm.get('email')?.invalid && (signupForm.get('email')?.touched || signupForm.get('email')?.dirty) ) {
+                    <div>
+                       @if (signupForm.get('email')?.getError('required')) {
+                         <div class="text-danger mt-1">Le champ email est obligatoire</div>
+                       }
+                       @if (signupForm.get('email')?.getError('email')) {
+                         <div class="text-danger mt-1">Veuillez fournir une adresse email valide</div>
+                       }
+                    </div>
+                  }
+                </div>
+              
+              </div>
+              <div class="row">
+                <div class="form-floating mb-2">
+                  <input 
+                       formControlName="password" 
+                       type="password" 
+                       class="form-control input-signup" 
+                       id="password"
+                       name="password" 
+                       placeholder=""
+                       autocomplete="off"
+
+                       required 
+                       [ngClass]="{ 'is-invalid': signupForm.get('password')?.errors && signupForm.get('password')?.touched }"   
+                  >
+                  <label for="password" class="form-label">password</label>
+                  @if(signupForm.get('password')?.invalid && (signupForm.get('password')?.touched || signupForm.get('password')?.dirty) ) {
+                    <div>
+                       @if (signupForm.get('password')?.getError('required')) {
+                         <div class="text-danger mt-1">Le champ password est obligatoire</div>
+                       }
+                       @if (signupForm.get('password')?.getError('minlength')) {
+                         <div class="text-danger mt-1">Le password doit comporter au moins 6 caractères</div>
+                       }
+                    </div>
+                  }
+                </div>
+             
+              </div>
+              <div class="row">
+                     <button class="btn btn-signup" [disabled]="signupForm.invalid">Registre</button>
+              </div>
+              <div class="row">
+                 <a  class="navigate-signup" routerLink="/signin">
+                  Already have an account ?
+                 </a>
+              </div>
+             </form>
+          </div>
+        </div>
+     </div>
+  </div>
+</div>

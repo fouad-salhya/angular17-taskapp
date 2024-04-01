@@ -1,0 +1,98 @@
+<div class="container mt-5">
+  <div class="row">
+    
+  </div>
+  <div class="row">
+     <div class="col-md-6 mx-auto mt-5">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="text-white text-center">Authentication Form</h5>
+          </div>
+          <div class="card-body">
+             <form [formGroup]="signinForm">
+              <div class="row">
+                <div class="form-floating mb-2">
+                  <input 
+                       formControlName="email" 
+                       type="email" 
+                       class="form-control input-signup" 
+                       id="email"
+                       name="email" 
+                       placeholder=""
+                       autocomplete="off"
+
+                       required 
+                       [ngClass]="{ 'is-invalid': signinForm.get('email')?.errors && signinForm.get('email')?.touched }"   
+                  >
+                  <label for="email" class="form-label">email</label>
+                  @if(signinForm.get('email')?.invalid && (signinForm.get('email')?.touched || signinForm.get('email')?.dirty) ) {
+                    <div>
+                       @if (signinForm.get('email')?.getError('required')) {
+                         <div class="text-danger mt-1">Le champ email est obligatoire</div>
+                       }
+                       @if (signinForm.get('email')?.getError('email')) {
+                         <div class="text-danger mt-1">Veuillez fournir une adresse email valide</div>
+                       }
+                    </div>
+                  }
+                </div>
+              
+              </div>
+              <div class="row">
+                <div class="form-floating mb-2">
+                  <input 
+                       formControlName="password" 
+                       type="password" 
+                       class="form-control input-signup" 
+                       id="password"
+                       name="password" 
+                       placeholder=""
+                       autocomplete="off"
+
+                       required 
+                       [ngClass]="{ 'is-invalid': signinForm.get('password')?.errors && signinForm.get('password')?.touched }"   
+                  >
+                  <label for="password" class="form-label">password</label>
+                  @if(signinForm.get('password')?.invalid && (signinForm.get('password')?.touched || signinForm.get('password')?.dirty) ) {
+                    <div>
+                       @if (signinForm.get('password')?.getError('required')) {
+                         <div class="text-danger mt-1">Le champ password est obligatoire</div>
+                       }
+                       @if (signinForm.get('password')?.getError('minlength')) {
+                         <div class="text-danger mt-1">Le password doit comporter au moins 6 caractères</div>
+                       }
+                    </div>
+                  }
+                </div> 
+              </div>
+              <div class="row">
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox"  name="remember_me" id="remember_me">
+                  <label class="form-check-label" for="remember_me">remember me</label>
+                </div>
+              </div>
+              <div class="row">
+                <button class="btn btn-signup" [disabled]="signinForm.invalid" (click)="signinUser()"> Signin </button>
+              </div>
+              <div class="row mt-1">
+                <button class="btn btn-google" (click)="loginGoogle()">
+                  <i class="fa fa-google" aria-hidden="true"></i>oogle
+                </button>
+              </div>
+              <div class="row mt-1">
+                <button class="btn btn-facebook" (click)="loginGoogle()">
+                  <i class="fa fa-facebook-official" aria-hidden="true"></i>acebook
+                </button>
+              </div>
+              <div class="row">
+                <a  class="navigate-signin" routerLink="/signup">
+                  you don't have an account?
+                </a>
+             </div>
+             </form>
+          </div>
+        </div>
+     </div>
+  </div>
+</div>
+

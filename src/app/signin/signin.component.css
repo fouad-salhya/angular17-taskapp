@@ -1,0 +1,68 @@
+
+div.card {
+    position: relative;
+
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+div.card-header {
+    background-color: #3498DB;
+}
+
+button.btn-signup {
+    background-color: #3498DB;
+    position: relative;
+    width: 96%;
+    left: 11px;
+    padding-right:20px;
+    font-weight: 600;
+    font-size: 17px;
+    color: white;
+}
+
+button.btn-google {
+    background-color: red;
+    position: relative;
+    width: 96%;
+    left: 11px;
+    font-weight: 600;
+    font-size: 17px;
+    color: white;
+}
+
+button.btn-facebook {
+    background-color: blue;
+    position: relative;
+    width: 96%;
+    left: 11px;
+    font-weight: 600;
+    font-size: 17px;
+    color: white;
+}
+
+
+.form-floating {
+    position: relative;
+}
+
+.form-label {
+   
+    top: -5px;
+    left: 8px;
+    font-size: 13px;
+}
+
+.form-check {
+    position: relative;
+    left: 10px;
+}
+
+.navigate-signin {
+    position: relative;
+    float: right;
+    text-decoration: none;
+    margin-top: 7px;
+    text-align: right;
+    cursor: pointer;
+
+}
